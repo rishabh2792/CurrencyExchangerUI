@@ -1,0 +1,52 @@
+  <div style="text-align:center">
+    <h1>
+      Welcome to {{ title }}!
+    </h1>
+  </div>
+  <h2>Currency Exchange Rate For: {{code}}</h2>
+
+  <div class="row">
+    <div class="col-lg-3">
+
+      <mat-form-field>
+        <mat-label>Select Currency:</mat-label>
+        <mat-select (selectionChange)="selectedCountry($event)">
+          <mat-option *ngFor="let data of currencyData" [value]="data.code">
+            {{data.country}}({{data.code}})
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+
+<div class="col-lg-7"></div>
+
+<div class="col-lg-2">
+  <button class="btn btn-primary" [routerLink]="['/add_country']">Add</button>
+  </div>
+
+  </div>
+
+  <div class="mt40"></div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <td> Currency</td>
+            <td> Price</td>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let rate of country_rates | keys">
+          <tr>
+            <td>{{rate.key}}</td>
+            <td>{{rate.value}}</td>
+          </tr>
+          </ng-container>
+        </tbody>
+      </table>
+
+    </div>
+  </div>

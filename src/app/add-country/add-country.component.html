@@ -1,0 +1,36 @@
+<div style="text-align:center">
+  <h1>
+    Add Country
+  </h1>
+</div>
+
+<div class="pull-right">
+<a [routerLink]="['']">Home</a>  
+</div>
+
+<div class="row">
+
+  <div class="col-lg-3"></div>
+
+  <div class="col-lg-6">
+
+    <form [formGroup]="countryForm" (ngSubmit)="onSubmit()">
+     
+      <label>
+        Country:
+        <input type="text" class="form-control" formControlName="country">
+      </label>
+     
+      <label>
+        Code:
+        <input type="text" class="form-control" formControlName="code">
+      </label>
+
+      <button type="submit" [disabled]="!countryForm.valid" class="btn btn-success">Submit</button>
+    </form>
+
+  </div>
+
+  <div class="col-lg-3"></div>
+
+</div>
